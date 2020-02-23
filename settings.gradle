@@ -1,0 +1,4 @@
+//include ':app'
+include ':libcomplier', ':libannotation'
+include ':app'
+rootProject.name='testNavigatorDemo'
