@@ -1,12 +1,14 @@
 package com.example.testnavigatordemo;
 
 import android.content.ComponentName;
+import android.content.Context;
 
-import com.example.libannotation.ActivityDestination;
 import com.example.testnavigatordemo.bean.Destination;
+import com.example.testnavigatordemo.fragment.FixFragmentNavigator;
 
 import java.util.HashMap;
 
+import androidx.fragment.app.FragmentActivity;
 import androidx.navigation.ActivityNavigator;
 import androidx.navigation.NavController;
 import androidx.navigation.NavGraph;
@@ -17,13 +19,16 @@ import androidx.navigation.fragment.FragmentNavigator;
 public class NavGraphBuilder {
 
 
-    public static void build(NavController navController){
+    public static void build(NavController navController,  FragmentActivity activity, int resid){
 
         final NavigatorProvider navigatorProvider = navController.getNavigatorProvider();
 
-        final FragmentNavigator fragmentNavigator = navigatorProvider.getNavigator(FragmentNavigator.class);
+//        final FragmentNavigator fragmentNavigator = navigatorProvider.getNavigator(FragmentNavigator.class);
+
+        FixFragmentNavigator fragmentNavigator = new FixFragmentNavigator(activity, activity.getSupportFragmentManager(),resid);
         final ActivityNavigator activityNavigator = navigatorProvider.getNavigator(ActivityNavigator.class);
 
+        navigatorProvider.addNavigator(fragmentNavigator);
 
         final NavGraph navGraph = new NavGraph(new NavGraphNavigator(navigatorProvider));
 

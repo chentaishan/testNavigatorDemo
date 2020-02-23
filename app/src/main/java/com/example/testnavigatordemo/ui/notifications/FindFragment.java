@@ -1,6 +1,7 @@
 package com.example.testnavigatordemo.ui.notifications;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,6 +32,9 @@ public class FindFragment extends Fragment {
                 textView.setText(s);
             }
         });
+        Log.d(TAG, "onCreateView: ");
         return root;
     }
+
+    private static final String TAG = "FindFragment";
 }
