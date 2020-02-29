@@ -1,4 +1,4 @@
-package com.example.testnavigatordemo;
+package com.example.testnavigatordemo.view;
 
 
 import android.annotation.SuppressLint;
@@ -10,7 +10,10 @@ import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.view.MenuItem;
 
+import com.example.testnavigatordemo.bean.BottomBar;
+import com.example.testnavigatordemo.R;
 import com.example.testnavigatordemo.bean.Destination;
+import com.example.testnavigatordemo.utils.AppConfig;
 import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;

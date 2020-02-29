@@ -1,10 +1,9 @@
-package com.example.testnavigatordemo;
+package com.example.testnavigatordemo.utils;
 
 import android.content.ComponentName;
-import android.content.Context;
 
 import com.example.testnavigatordemo.bean.Destination;
-import com.example.testnavigatordemo.fragment.FixFragmentNavigator;
+import com.example.testnavigatordemo.navigator.FixFragmentNavigator;
 
 import java.util.HashMap;
 

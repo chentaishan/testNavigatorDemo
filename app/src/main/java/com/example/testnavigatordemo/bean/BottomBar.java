@@ -1,4 +1,4 @@
-package com.example.testnavigatordemo;
+package com.example.testnavigatordemo.bean;
 
 import java.util.List;
 

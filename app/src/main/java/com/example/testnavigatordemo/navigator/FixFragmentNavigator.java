@@ -1,4 +1,4 @@
-package com.example.testnavigatordemo.fragment;
+package com.example.testnavigatordemo.navigator;
 
 import android.content.Context;
 import android.os.Build;

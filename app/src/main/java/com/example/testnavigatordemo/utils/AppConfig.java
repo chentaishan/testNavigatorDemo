@@ -1,9 +1,11 @@
-package com.example.testnavigatordemo;
+package com.example.testnavigatordemo.utils;
 
 import android.content.res.AssetManager;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
+import com.example.libcommon.AppGlobals;
+import com.example.testnavigatordemo.bean.BottomBar;
 import com.example.testnavigatordemo.bean.Destination;
 
 import java.io.BufferedReader;

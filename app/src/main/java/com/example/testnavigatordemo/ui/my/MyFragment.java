@@ -1,4 +1,4 @@
-package com.example.testnavigatordemo.fragment;
+package com.example.testnavigatordemo.ui.my;
 
 import android.os.Bundle;
 import android.util.Log;
