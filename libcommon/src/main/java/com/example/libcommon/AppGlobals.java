@@ -1,4 +1,4 @@
-package com.example.testnavigatordemo;
+package com.example.libcommon;
 
 import android.app.Application;
 
