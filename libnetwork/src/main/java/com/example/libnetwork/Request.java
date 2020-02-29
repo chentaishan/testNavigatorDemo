@@ -1,6 +1,9 @@
 package com.example.libnetwork;
 
+import android.text.TextUtils;
 import android.util.Log;
+
+import com.example.libnetwork.db.CacheManager;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -32,6 +35,7 @@ public abstract class Request<T, R extends Request> {
     private String key;
 
     private Type mType;
+    private int mCacheStrategy;
 
     public Request(String url) {
         //user/list
@@ -121,8 +125,7 @@ public abstract class Request<T, R extends Request> {
 
     private void addHeaders(okhttp3.Request.Builder builder) {
 
-        for (Map.Entry<String, String> entry : headers.entrySet()
-        ) {
+        for (Map.Entry<String, String> entry : headers.entrySet() ) {
 
             builder.addHeader(entry.getKey(), entry.getValue());
         }
@@ -163,9 +166,24 @@ public abstract class Request<T, R extends Request> {
         result.code = status;
         result.msg = message;
 
-//        if (mCacheStrategy != NET_ONLY && result.success && result.body != null && result.body instanceof Serializable) {
-//            saveCache(result.body);
-//        }
+        if (mCacheStrategy != NET_ONLY && result.isSuccess && result.body != null && result.body instanceof Serializable) {
+            saveCache(result.body);
+        }
         return result;
+    }
+
+    public R cacheStrategy(@CacheStatgy int cacheStrategy) {
+        mCacheStrategy = cacheStrategy;
+        return (R) this;
+    }
+
+    private void saveCache(T body) {
+        String k = TextUtils.isEmpty(key) ? generateCacheKey() : key;
+        CacheManager.save(k, body);
+    }
+
+    private String generateCacheKey() {
+        key = UrlCreator.createUrlFromParams(mUrl, params);
+        return key;
     }
 }
